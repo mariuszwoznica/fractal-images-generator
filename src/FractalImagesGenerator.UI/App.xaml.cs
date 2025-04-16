@@ -1,14 +1,17 @@
-﻿using System.Configuration;
-using System.Data;
+﻿using FractalImagesGenerator.UI.ViewModels;
+using FractalImagesGenerator.UI.Views;
 using System.Windows;
 
-namespace FractalImagesGenerator.UI
-{
-    /// <summary>
-    /// Interaction logic for App.xaml
-    /// </summary>
-    public partial class App : Application
-    {
-    }
+namespace FractalImagesGenerator.UI;
 
+public partial class App : Application
+{
+    protected override void OnStartup(StartupEventArgs e)
+    {
+        base.OnStartup(e);
+
+        MainView view = new();
+        view.DataContext = new MainViewModel();
+        view.Show();
+    }
 }
