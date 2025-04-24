@@ -11,7 +11,8 @@ public partial class App : Application
         base.OnStartup(e);
 
         MainView view = new();
-        view.DataContext = new MainViewModel();
+        MainViewModel viewModel = new();
+        view.DataContext = viewModel;
         view.Show();
     }
 }

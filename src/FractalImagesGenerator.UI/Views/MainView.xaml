@@ -3,10 +3,20 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:FractalImagesGenerator.UI" 
+        xmlns:view="clr-namespace:FractalImagesGenerator.UI.Views"
+        xmlns:viewmodel="clr-namespace:FractalImagesGenerator.UI.ViewModels"
         mc:Ignorable="d"
         Height="600" Width="1200">
-    
+
+    <Window.Resources>
+        <DataTemplate DataType="{x:Type viewmodel:MandelbrotSetSettingsViewModel}">
+            <view:MandelbrotSetSettingsView />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodel:JuliaSetSettingsViewModel}">
+            <view:JuliaSetSettingsView />
+        </DataTemplate>
+    </Window.Resources>
+
     <Grid>
 
         <Grid.ColumnDefinitions>
@@ -26,8 +36,8 @@
 
             <Border Grid.Row="1" BorderBrush="Black" Margin="10">
                 <StackPanel Margin="10">
-                    <Button Margin="0, 10, 0, 10" Height="60" Content="Mandelbrot Set" />
-                    <Button Margin="0, 10, 0, 10" Height="60" Content="Julia Set"/>
+                    <Button Command="{Binding MSetSettingsCommand}" Content="Mandelbrot Set" Margin="0, 10, 0, 10" Height="60"/>
+                    <Button Command="{Binding JSetSettingsCommand}" Content="Julia Set" Margin="0, 10, 0, 10" Height="60"/>
                 </StackPanel>
             </Border>
 
@@ -36,4 +46,5 @@
         <ContentControl Grid.Column="1" Content="{Binding CurrentPage}"/>
 
     </Grid>
+
 </Window>
