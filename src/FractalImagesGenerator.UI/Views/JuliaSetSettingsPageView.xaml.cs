@@ -2,9 +2,9 @@
 
 namespace FractalImagesGenerator.UI.Views;
 
-public partial class JuliaSetSettingsView : UserControl
+public partial class JuliaSetSettingsPageView : UserControl
 {
-    public JuliaSetSettingsView()
+    public JuliaSetSettingsPageView()
     {
         InitializeComponent();
     }

@@ -2,9 +2,9 @@
 
 namespace FractalImagesGenerator.UI.Views;
 
-public partial class MandelbrotSetSettingsView : UserControl
+public partial class MandelbrotSetSettingsPageView : UserControl
 {
-    public MandelbrotSetSettingsView()
+    public MandelbrotSetSettingsPageView()
     {
         InitializeComponent();
     }

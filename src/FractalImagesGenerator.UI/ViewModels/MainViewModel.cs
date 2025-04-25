@@ -5,9 +5,11 @@ namespace FractalImagesGenerator.UI.ViewModels;
 
 public class MainViewModel : BaseViewModel
 {
-    private BaseViewModel _currentPage;
+    private readonly PageFactory _pageFactory;
 
-    public BaseViewModel CurrentPage
+    private PageViewModel _currentPage;
+
+    public PageViewModel CurrentPage
     {
         get => _currentPage;
         set {
@@ -16,16 +18,16 @@ public class MainViewModel : BaseViewModel
         }
     }
 
-    private readonly BaseViewModel _mVM = new MandelbrotSetSettingsViewModel();
-    private readonly BaseViewModel _jVM = new JuliaSetSettingsViewModel();
+    public ICommand MSetSettingsCommand => new RelayCommand(()
+        => CurrentPage = _pageFactory.GetPageViewModel<MandelbrotSetSettingsPageViewModel>());
 
-    public ICommand MSetSettingsCommand => new RelayCommand(() => CurrentPage = _mVM);
-    public ICommand JSetSettingsCommand => new RelayCommand(() => CurrentPage = _jVM);
+    public ICommand JSetSettingsCommand => new RelayCommand(() 
+        => CurrentPage = _pageFactory.GetPageViewModel<JuliaSetSettingsPageViewModel>());
 
 
-    public MainViewModel()
+    public MainViewModel(PageFactory factory) 
     {
-
+        _pageFactory = factory;
     }
 
 }

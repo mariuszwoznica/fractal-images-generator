@@ -5,15 +5,16 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:view="clr-namespace:FractalImagesGenerator.UI.Views"
         xmlns:viewmodel="clr-namespace:FractalImagesGenerator.UI.ViewModels"
+        d:DataContext="{d:DesignInstance Type=viewmodel:MainViewModel}"
         mc:Ignorable="d"
         Height="600" Width="1200">
 
     <Window.Resources>
-        <DataTemplate DataType="{x:Type viewmodel:MandelbrotSetSettingsViewModel}">
-            <view:MandelbrotSetSettingsView />
+        <DataTemplate DataType="{x:Type viewmodel:MandelbrotSetSettingsPageViewModel}">
+            <view:MandelbrotSetSettingsPageView />
         </DataTemplate>
-        <DataTemplate DataType="{x:Type viewmodel:JuliaSetSettingsViewModel}">
-            <view:JuliaSetSettingsView />
+        <DataTemplate DataType="{x:Type viewmodel:JuliaSetSettingsPageViewModel}">
+            <view:JuliaSetSettingsPageView />
         </DataTemplate>
     </Window.Resources>
 
