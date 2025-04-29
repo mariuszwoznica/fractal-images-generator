@@ -5,9 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:view="clr-namespace:FractalImagesGenerator.UI.Views"
         xmlns:viewmodel="clr-namespace:FractalImagesGenerator.UI.ViewModels"
-        d:DataContext="{d:DesignInstance Type=viewmodel:MainViewModel}"
         mc:Ignorable="d"
-        Height="600" Width="1200">
+        Height="600" Width="1200"
+        d:DataContext="{d:DesignInstance Type=viewmodel:MainViewModel}"
+        Title="Fractal Image Generator" ResizeMode="NoResize" ThemeMode="Dark">
 
     <Window.Resources>
         <DataTemplate DataType="{x:Type viewmodel:MandelbrotSetSettingsPageViewModel}">
@@ -18,34 +19,38 @@
         </DataTemplate>
     </Window.Resources>
 
-    <Grid>
-
+    <Grid Background="{DynamicResource PrimaryBackground}">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="200" />
+            <ColumnDefinition Width="250" />
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
 
-        <Grid Grid.Column="0" Background="DimGray">
+        <Border Grid.Column="0" Padding="7" Background="{DynamicResource SecondaryBackground}">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
 
+                <StackPanel Grid.Row="0">
+                    <Image Source="/Assets/Images/logo.png" />
+
+                    <Button Command="{Binding MSetSettingsCommand}" Style="{StaticResource SideBarButton}" Content="Mandelbrot Set" />
+                    <Button Command="{Binding JSetSettingsCommand}" Style="{StaticResource SideBarButton}" Content="Julia Set" />
+                </StackPanel>
+            </Grid>
+        </Border>
+
+        <Grid Grid.Column="1" Background="{DynamicResource PrimaryBackground}">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*" />
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="*" />
+                <RowDefinition Height="4*" />
             </Grid.RowDefinitions>
 
-            <Label Grid.Row="0" Content="Fractal Images Generator" FontSize="20" Padding="20"/>
+            <Label Grid.Row="0" Background="{DynamicResource PrimaryBackgroundGradient}" />
 
-            <Border Grid.Row="1" BorderBrush="Black" Margin="10">
-                <StackPanel Margin="10">
-                    <Button Command="{Binding MSetSettingsCommand}" Content="Mandelbrot Set" Margin="0, 10, 0, 10" Height="60"/>
-                    <Button Command="{Binding JSetSettingsCommand}" Content="Julia Set" Margin="0, 10, 0, 10" Height="60"/>
-                </StackPanel>
-            </Border>
-
+            <ContentControl Grid.Row="1" Content="{Binding CurrentPage}"/>
         </Grid>
 
-        <ContentControl Grid.Column="1" Content="{Binding CurrentPage}"/>
-
     </Grid>
-
 </Window>
