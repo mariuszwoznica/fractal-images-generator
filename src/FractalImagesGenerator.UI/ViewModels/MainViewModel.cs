@@ -28,6 +28,7 @@ public class MainViewModel : BaseViewModel
     public MainViewModel(PageFactory factory) 
     {
         _pageFactory = factory;
+        _currentPage = _pageFactory.GetPageViewModel<StartPageViewModel>();
     }
 
 }

@@ -4,10 +4,33 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:FractalImagesGenerator.UI.Views"
+             xmlns:viewmodel="clr-namespace:FractalImagesGenerator.UI.ViewModels"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             Height="450" Width="800"
+             d:DataContext="{d:DesignInstance Type=viewmodel:MandelbrotSetSettingsPageViewModel}">
 
     <Grid Background="{DynamicResource PrimaryBackground}">
-        
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="2*" />
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Column="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="3*" />
+                </Grid.RowDefinitions>
+
+                <TextBlock Grid.Row="1" Text="{Binding Description}" Foreground="{DynamicResource PrimaryForeground}" TextAlignment="Left" FontSize="20" />
+            </Grid>
+
+            <Border Grid.Column="1">
+                <Border Width="500" Height="400" BorderThickness="2" CornerRadius="4" Padding="5"
+                        BorderBrush="{DynamicResource PrimaryImageBorederBrush}" Background="{DynamicResource PrimaryBackground}">
+                    <Image Width="480" Height="400" Source="/Assets/Images/MandelbrotSet.png" />
+                </Border>
+            </Border>
+        </Grid>
     </Grid>
 </UserControl>

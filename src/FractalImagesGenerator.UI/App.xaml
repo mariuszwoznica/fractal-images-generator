@@ -25,6 +25,11 @@
             <SolidColorBrush x:Key="SecondaryBackground">#33333D</SolidColorBrush>
 
             <SolidColorBrush x:Key="TertiaryBackground">#424250</SolidColorBrush>
+
+            <LinearGradientBrush x:Key="PrimaryImageBorederBrush" StartPoint="0, 0" EndPoint="1, 0">
+                <GradientStop Offset="0" Color="#913A5A" />
+                <GradientStop Offset="1" Color="#FA4284" />
+            </LinearGradientBrush>
         </ResourceDictionary>
     </Application.Resources>
 </Application>

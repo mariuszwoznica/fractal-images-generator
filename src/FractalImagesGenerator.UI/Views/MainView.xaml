@@ -8,9 +8,12 @@
         mc:Ignorable="d"
         Height="600" Width="1200"
         d:DataContext="{d:DesignInstance Type=viewmodel:MainViewModel}"
-        Title="Fractal Image Generator" ResizeMode="NoResize" ThemeMode="Dark">
+        ResizeMode="CanMinimize" ThemeMode="Dark">
 
     <Window.Resources>
+        <DataTemplate DataType="{x:Type viewmodel:StartPageViewModel}">
+            <view:StartPageView />
+        </DataTemplate>
         <DataTemplate DataType="{x:Type viewmodel:MandelbrotSetSettingsPageViewModel}">
             <view:MandelbrotSetSettingsPageView />
         </DataTemplate>
