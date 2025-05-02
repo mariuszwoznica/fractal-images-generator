@@ -18,14 +18,14 @@ public class MainViewModel : BaseViewModel
         }
     }
 
-    public ICommand MSetSettingsCommand => new RelayCommand(()
-        => CurrentPage = _pageFactory.GetPageViewModel<MandelbrotSetSettingsPageViewModel>());
+    public ICommand MandelbrotSetCommand => new RelayCommand(()
+        => CurrentPage = _pageFactory.GetPageViewModel<MandelbrotSetPageViewModel>());
 
-    public ICommand JSetSettingsCommand => new RelayCommand(() 
-        => CurrentPage = _pageFactory.GetPageViewModel<JuliaSetSettingsPageViewModel>());
+    public ICommand JuliaSetCommand => new RelayCommand(() 
+        => CurrentPage = _pageFactory.GetPageViewModel<JuliaSetPageViewModel>());
 
 
-    public MainViewModel(PageFactory factory) 
+    public MainViewModel(PageFactory factory)
     {
         _pageFactory = factory;
         _currentPage = _pageFactory.GetPageViewModel<StartPageViewModel>();

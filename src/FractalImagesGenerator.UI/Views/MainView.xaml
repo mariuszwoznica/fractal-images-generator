@@ -14,11 +14,14 @@
         <DataTemplate DataType="{x:Type viewmodel:StartPageViewModel}">
             <view:StartPageView />
         </DataTemplate>
-        <DataTemplate DataType="{x:Type viewmodel:MandelbrotSetSettingsPageViewModel}">
-            <view:MandelbrotSetSettingsPageView />
+        <DataTemplate DataType="{x:Type viewmodel:MandelbrotSetPageViewModel}">
+            <view:MandelbrotSetPageView />
         </DataTemplate>
-        <DataTemplate DataType="{x:Type viewmodel:JuliaSetSettingsPageViewModel}">
-            <view:JuliaSetSettingsPageView />
+        <DataTemplate DataType="{x:Type viewmodel:JuliaSetPageViewModel}">
+            <view:JuliaSetPageView />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodel:DisplayPageViewModel}">
+            <view:DisplayPageView />
         </DataTemplate>
     </Window.Resources>
 
@@ -38,8 +41,8 @@
                 <StackPanel Grid.Row="0">
                     <Image Source="/Assets/Images/logo.png" />
 
-                    <Button Command="{Binding MSetSettingsCommand}" Style="{StaticResource SideBarButton}" Content="Mandelbrot Set" />
-                    <Button Command="{Binding JSetSettingsCommand}" Style="{StaticResource SideBarButton}" Content="Julia Set" />
+                    <Button Command="{Binding MandelbrotSetCommand}" Style="{StaticResource SideBarButton}" Content="Mandelbrot Set" />
+                    <Button Command="{Binding JuliaSetCommand}" Style="{StaticResource SideBarButton}" Content="Julia Set" />
                 </StackPanel>
             </Grid>
         </Border>

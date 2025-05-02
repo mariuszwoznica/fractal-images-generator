@@ -13,14 +13,16 @@ public partial class App : Application
         var collection = new ServiceCollection();
         collection.AddSingleton<MainViewModel>();
         collection.AddSingleton<StartPageViewModel>();
-        collection.AddTransient<MandelbrotSetSettingsPageViewModel>();
-        collection.AddTransient<JuliaSetSettingsPageViewModel>();
+        collection.AddTransient<MandelbrotSetPageViewModel>();
+        collection.AddTransient<JuliaSetPageViewModel>();
+        collection.AddTransient<DisplayPageViewModel>();
 
-        collection.AddSingleton<Func<Type, PageViewModel>>(x => type => type switch
+        collection.AddSingleton<Func<Type, PageViewModel>>(provider => type => type switch
         {
-            _ when type == typeof(StartPageViewModel) => x.GetRequiredService<StartPageViewModel>(),
-            _ when type == typeof(MandelbrotSetSettingsPageViewModel) => x.GetRequiredService<MandelbrotSetSettingsPageViewModel>(),
-            _ when type == typeof(JuliaSetSettingsPageViewModel) => x.GetRequiredService<JuliaSetSettingsPageViewModel>(),
+            _ when type == typeof(StartPageViewModel) => provider.GetRequiredService<StartPageViewModel>(),
+            _ when type == typeof(MandelbrotSetPageViewModel) => provider.GetRequiredService<MandelbrotSetPageViewModel>(),
+            _ when type == typeof(JuliaSetPageViewModel) => provider.GetRequiredService<JuliaSetPageViewModel>(),
+            _ when type == typeof(DisplayPageViewModel) => provider.GetRequiredService<DisplayPageViewModel>(),
             _ => throw new InvalidOperationException()
         });
         collection.AddSingleton<PageFactory>();

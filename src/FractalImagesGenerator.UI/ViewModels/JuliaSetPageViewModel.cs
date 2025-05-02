@@ -2,9 +2,9 @@
 
 namespace FractalImagesGenerator.UI.ViewModels;
 
-public class JuliaSetSettingsPageViewModel : PageViewModel
+public class JuliaSetPageViewModel : PageViewModel
 {
-    public JuliaSetSettingsPageViewModel()
+    public JuliaSetPageViewModel()
     {
 
     }
