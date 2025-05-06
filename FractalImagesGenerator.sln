@@ -1,11 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.13.35913.81 d17.13
+VisualStudioVersion = 17.13.35913.81
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FractalImagesGenerator.UI", "src\FractalImagesGenerator.UI\FractalImagesGenerator.UI.csproj", "{1387F42B-CB23-4BE9-A742-B5EC49580B73}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FractalImageGenerator.Generator", "src\FractalImageGenerator.Generator\FractalImageGenerator.Generator.csproj", "{A49155C5-2175-4377-8E59-E29F328D6D58}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,12 +19,17 @@ Global
 		{1387F42B-CB23-4BE9-A742-B5EC49580B73}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1387F42B-CB23-4BE9-A742-B5EC49580B73}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1387F42B-CB23-4BE9-A742-B5EC49580B73}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A49155C5-2175-4377-8E59-E29F328D6D58}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A49155C5-2175-4377-8E59-E29F328D6D58}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A49155C5-2175-4377-8E59-E29F328D6D58}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A49155C5-2175-4377-8E59-E29F328D6D58}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{1387F42B-CB23-4BE9-A742-B5EC49580B73} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{A49155C5-2175-4377-8E59-E29F328D6D58} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {85F6114E-3A4D-415C-92F0-28F353B3A92D}
