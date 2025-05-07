@@ -1,33 +1,21 @@
-﻿namespace FractalImageGenerator.Generator.Fractals;
+﻿using FractalImageGenerator.Generator.Configurations;
 
-internal class MandelbrotSet : IFractal
+namespace FractalImageGenerator.Generator.Fractals;
+
+internal class MandelbrotSet(MandelbrotSetConfiguration configuration) : IFractal
 {
-    public int Width { get; init; }
-    public int Height { get; init; }
-    public int Zoom { get; init; }
-    public int MaxIterations { get; init; }
-    public double OffsetX { get; init; }
-    public double OffsetY { get; init; }
+    public int Width { get; init; } = configuration.Width;
+    public int Height { get; init; } = configuration.Height;
+    public int Zoom { get; init; } = configuration.Zoom;
+    public int MaxIterations { get; init; } = configuration.MaxIterations;
+    public double OffsetX { get; init; } = configuration.OffsetX;
+    public double OffsetY { get; init; } = configuration.OffsetY;
 
     public double HWWidth => Width / 2;
-    public double HHeight => HHeight / 2;
+    public double HHeight => Height / 2;
     public double Magnitude => (Width / 3.0) * Zoom * Zoom;
-
-    private MandelbrotSet(MandelbrotSetConfiguration configuration) 
-    { 
-        Width = configuration.Width;
-        Height = configuration.Height;
-        OffsetX = configuration.OffsetX;
-        OffsetY = configuration.OffsetY;
-        Zoom = configuration.Zoom;
-        MaxIterations = configuration.MaxIterations;
-    }
-
-    public static byte[] RenderMandelbrotSet(MandelbrotSetConfiguration configuration)
-    {
-        MandelbrotSet mSet = new(configuration);
-        return mSet.CreatePixelArray();
-    }
+    
+    public byte[] Render() => CreatePixelArray();
 
     private byte[] CreatePixelArray()
     {
@@ -65,7 +53,7 @@ internal class MandelbrotSet : IFractal
         return pixelArray;
     }
 
-    private double TransformXFromScreenToWorld(int x) => ((x - HWWidth) / Magnitude) + OffsetX;
+    private double TransformXFromScreenToWorld(int x) => ((x - HWWidth) / Magnitude) - OffsetX;
 
     private double TransformYFromScreenToWorld(int y) => -((y - HHeight) / Magnitude) + OffsetY;
 
