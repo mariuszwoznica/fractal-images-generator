@@ -21,6 +21,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\FractalImageGenerator.Generator\FractalImageGenerator.Generator.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Resource Include="Assets\Images\logo.png" />
     <Resource Include="Assets\Images\MandelbrotSet.png" />
   </ItemGroup>

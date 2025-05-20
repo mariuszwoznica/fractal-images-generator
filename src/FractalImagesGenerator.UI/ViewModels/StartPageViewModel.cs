@@ -1,4 +1,4 @@
-﻿using FractalImagesGenerator.UI.Base;
+﻿using FractalImagesGenerator.UI.Data;
 
 namespace FractalImagesGenerator.UI.ViewModels;
 
@@ -8,5 +8,5 @@ public class StartPageViewModel : PageViewModel
 
     public string Description => _description;
 
-    public StartPageViewModel() { }
+    public StartPageViewModel() : base(ApplicationPageName.Start) { }
 }

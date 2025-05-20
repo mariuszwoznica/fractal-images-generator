@@ -1,7 +1,8 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:customcontrol="clr-namespace:FractalImagesGenerator.UI.DependencyProperties">
 
-    <Style x:Key="SideBarButton" TargetType="Button">
+    <Style x:Key="SideBarButton" TargetType="customcontrol:SideBarButton">
         <Setter Property="Background" Value="{DynamicResource SecondaryBackground}"/>
         <Setter Property="Foreground" Value="{DynamicResource PrimaryForeground}" />
         <Setter Property="FontFamily" Value="Consolas" />
@@ -12,11 +13,11 @@
 
         <Setter Property="Template">
             <Setter.Value>
-                <ControlTemplate TargetType="Button">
+                <ControlTemplate TargetType="customcontrol:SideBarButton">
                     <Border CornerRadius="4" 
                             Background="{TemplateBinding Background}" 
                             BorderThickness="0">
-                        <ContentPresenter Focusable="False"
+                        <ContentPresenter Focusable="True"
                                           HorizontalAlignment="Center" 
                                           VerticalAlignment="Center">
                         </ContentPresenter>
@@ -28,6 +29,11 @@
                         </Trigger>
                         <Trigger Property="IsPressed" Value="True">
                             <Setter Property="Background" Value="{DynamicResource PrimaryPressedBackground}" />
+                            <Setter Property="Foreground" Value="{DynamicResource PrimaryHoverForeground}" />
+                        </Trigger>
+                        <Trigger Property="IsActive" Value="True">
+                            <Setter Property="Background" Value="{DynamicResource PrimaryPressedBackground}" />
+                            <Setter Property="Foreground" Value="{DynamicResource PrimaryHoverForeground}" />
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>

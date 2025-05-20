@@ -1,4 +1,4 @@
-﻿using FractalImagesGenerator.UI.Base;
+﻿using FractalImagesGenerator.UI.ViewModels;
 
 namespace FractalImagesGenerator.UI;
 

@@ -1,4 +1,5 @@
-﻿using FractalImagesGenerator.UI.Base;
+﻿using FractalImageGenerator.Generator.Extensions;
+using FractalImagesGenerator.UI.Services;
 using FractalImagesGenerator.UI.ViewModels;
 using FractalImagesGenerator.UI.Views;
 using Microsoft.Extensions.DependencyInjection;
@@ -26,6 +27,10 @@ public partial class App : Application
             _ => throw new InvalidOperationException()
         });
         collection.AddSingleton<PageFactory>();
+        collection.AddSingleton<Fractal>();
+        collection.AddTransient<FractalConfigurationService>();
+
+        collection.AddGenerator();
 
         var serviceProvider = collection.BuildServiceProvider();
 

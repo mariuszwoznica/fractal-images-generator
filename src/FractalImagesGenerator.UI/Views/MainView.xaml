@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:view="clr-namespace:FractalImagesGenerator.UI.Views"
         xmlns:viewmodel="clr-namespace:FractalImagesGenerator.UI.ViewModels"
+        xmlns:customcontrol="clr-namespace:FractalImagesGenerator.UI.DependencyProperties"
         mc:Ignorable="d"
         Height="600" Width="1200"
         d:DataContext="{d:DesignInstance Type=viewmodel:MainViewModel}"
@@ -40,9 +41,14 @@
 
                 <StackPanel Grid.Row="0">
                     <Image Source="/Assets/Images/logo.png" />
-
-                    <Button Command="{Binding MandelbrotSetCommand}" Style="{StaticResource SideBarButton}" Content="Mandelbrot Set" />
-                    <Button Command="{Binding JuliaSetCommand}" Style="{StaticResource SideBarButton}" Content="Julia Set" />
+                    
+                    <customcontrol:SideBarButton IsActive="{Binding MandelbrotSetPageIsActive}" 
+                                                 Command="{Binding MandelbrotSetCommand}" 
+                                                 Style="{StaticResource SideBarButton}" 
+                                                 Content="Mandelbrot set" />
+                    <customcontrol:SideBarButton Command="{Binding JuliaSetCommand}" 
+                                                 Style="{StaticResource SideBarButton}" 
+                                                 Content="Julia set" />
                 </StackPanel>
             </Grid>
         </Border>

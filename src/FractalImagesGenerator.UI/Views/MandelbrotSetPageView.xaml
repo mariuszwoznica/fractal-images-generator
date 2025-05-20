@@ -3,8 +3,9 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:FractalImagesGenerator.UI.Views"
+             xmlns:local="clr-namespace:FractalImagesGenerator.UI"
              xmlns:viewmodel="clr-namespace:FractalImagesGenerator.UI.ViewModels"
+             xmlns:customcontrol="clr-namespace:FractalImagesGenerator.UI.DependencyProperties"
              mc:Ignorable="d" 
              Height="450" Width="800"
              d:DataContext="{d:DesignInstance Type=viewmodel:MandelbrotSetPageViewModel}">
@@ -22,15 +23,18 @@
                     <RowDefinition Height="3*" />
                 </Grid.RowDefinitions>
 
-                <TextBlock Grid.Row="1" Text="{Binding Description}" Foreground="{DynamicResource PrimaryForeground}" TextAlignment="Left" FontSize="20" />
+                <TextBlock Grid.Row="1" Text="{Binding Description}" TextWrapping="Wrap" Foreground="{DynamicResource PrimaryForeground}" TextAlignment="Left" FontSize="20" />
             </Grid>
 
             <Border Grid.Column="1">
-                <Border Width="500" Height="400" BorderThickness="2" CornerRadius="4" Padding="5"
+                <Border Width="480" Height="400" BorderThickness="7" CornerRadius="4" Padding="0"
                         BorderBrush="{DynamicResource PrimaryImageBorederBrush}" Background="{DynamicResource PrimaryBackground}">
-                    <Image Width="480" Height="400" Source="/Assets/Images/MandelbrotSet.png" />
+                    <customcontrol:ImageButton Command="{Binding PlottMandelbrotSetCommand}" MousePosition="{Binding MousePosition}" >
+                        <Image Width="480" Height="400" Source="/Assets/Images/MandelbrotSet.png" />
+                    </customcontrol:ImageButton>
                 </Border>
             </Border>
         </Grid>
+        
     </Grid>
 </UserControl>
