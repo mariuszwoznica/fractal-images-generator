@@ -8,4 +8,25 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="Assets\Images\ImageB.png" />
+    <None Remove="Assets\Images\logo.png" />
+    <None Remove="Assets\Images\logo.svg" />
+    <None Remove="Assets\Images\MandelbrotSet.png" />
+    <None Remove="Assets\Images\MSet.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="9.0.4" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\FractalImageGenerator.Generator\FractalImageGenerator.Generator.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Assets\Images\logo.png" />
+    <Resource Include="Assets\Images\MandelbrotSet.png" />
+  </ItemGroup>
+
 </Project>
