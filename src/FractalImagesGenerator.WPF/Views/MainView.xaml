@@ -1,0 +1,68 @@
+﻿<Window x:Class="FractalImagesGenerator.WPF.Views.MainView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:view="clr-namespace:FractalImagesGenerator.WPF.Views"
+        xmlns:viewmodel="clr-namespace:FractalImagesGenerator.WPF.ViewModels"
+        xmlns:customcontrol="clr-namespace:FractalImagesGenerator.WPF.DependencyProperties"
+        mc:Ignorable="d"
+        Height="600" Width="1200"
+        d:DataContext="{d:DesignInstance Type=viewmodel:MainViewModel}"
+        ResizeMode="CanMinimize" ThemeMode="Dark">
+
+    <Window.Resources>
+        <DataTemplate DataType="{x:Type viewmodel:StartPageViewModel}">
+            <view:StartPageView />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodel:MandelbrotSetPageViewModel}">
+            <view:MandelbrotSetPageView />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodel:JuliaSetPageViewModel}">
+            <view:JuliaSetPageView />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodel:FractalImagePageViewModel}">
+            <view:FractalImagePageView />
+        </DataTemplate>
+    </Window.Resources>
+
+    <Grid Background="{DynamicResource PrimaryBackground}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="250" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <Border Grid.Column="0" Padding="7" Background="{DynamicResource SecondaryBackground}">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <StackPanel Grid.Row="0">
+                    <Image Source="/Assets/Images/logo.png" />
+                    
+                    <customcontrol:SideBarButton IsActive="{Binding MandelbrotSetPageIsActive}" 
+                                                 Command="{Binding MandelbrotSetCommand}" 
+                                                 Style="{StaticResource SideBarButton}" 
+                                                 Content="Mandelbrot set" />
+                    <customcontrol:SideBarButton Command="{Binding JuliaSetCommand}" 
+                                                 Style="{StaticResource SideBarButton}" 
+                                                 Content="Julia set" />
+                </StackPanel>
+            </Grid>
+        </Border>
+
+        <Grid Grid.Column="1" Background="{DynamicResource PrimaryBackground}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="4*" />
+            </Grid.RowDefinitions>
+
+            <Label Grid.Row="0" Background="{DynamicResource PrimaryBackgroundGradient}" />
+
+            <ContentControl Grid.Row="1" Content="{Binding CurrentPage}"/>
+        </Grid>
+
+    </Grid>
+</Window>
