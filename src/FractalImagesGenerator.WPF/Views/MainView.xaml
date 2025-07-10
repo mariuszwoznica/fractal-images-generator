@@ -5,25 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:view="clr-namespace:FractalImagesGenerator.WPF.Views"
         xmlns:viewmodel="clr-namespace:FractalImagesGenerator.WPF.ViewModels"
-        xmlns:customcontrol="clr-namespace:FractalImagesGenerator.WPF.DependencyProperties"
+        xmlns:customcontrol="clr-namespace:FractalImagesGenerator.WPF.DependencyProperties" 
+        xmlns:converter="clr-namespace:FractalImagesGenerator.WPF"
         mc:Ignorable="d"
         Height="600" Width="1200"
         d:DataContext="{d:DesignInstance Type=viewmodel:MainViewModel}"
         ResizeMode="CanMinimize" ThemeMode="Dark">
 
     <Window.Resources>
-        <DataTemplate DataType="{x:Type viewmodel:StartPageViewModel}">
-            <view:StartPageView />
-        </DataTemplate>
-        <DataTemplate DataType="{x:Type viewmodel:MandelbrotSetPageViewModel}">
-            <view:MandelbrotSetPageView />
-        </DataTemplate>
-        <DataTemplate DataType="{x:Type viewmodel:JuliaSetPageViewModel}">
-            <view:JuliaSetPageView />
-        </DataTemplate>
-        <DataTemplate DataType="{x:Type viewmodel:FractalImagePageViewModel}">
-            <view:FractalImagePageView />
-        </DataTemplate>
+        <converter:ViewLocator x:Key="ViewLocator" />
     </Window.Resources>
 
     <Grid Background="{DynamicResource PrimaryBackground}">
@@ -61,7 +51,7 @@
 
             <Label Grid.Row="0" Background="{DynamicResource PrimaryBackgroundGradient}" />
 
-            <ContentControl Grid.Row="1" Content="{Binding CurrentPage}"/>
+            <ContentControl Grid.Row="1" Content="{Binding CurrentPage, Converter={StaticResource ViewLocator}}" />
         </Grid>
 
     </Grid>
