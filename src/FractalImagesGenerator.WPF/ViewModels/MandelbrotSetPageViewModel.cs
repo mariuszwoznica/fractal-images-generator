@@ -1,5 +1,6 @@
 ﻿using FractalImagesGenerator.WPF.Data;
 using FractalImagesGenerator.WPF.Services;
+using FractalImagesGenerator.WPF.Utilities;
 using FractalImagesGenerator.WPF.ViewModels.Base;
 using System.Windows;
 using System.Windows.Input;
@@ -24,14 +25,18 @@ public class MandelbrotSetPageViewModel(
         set => SetProperty(ref _mousePosition, value);
     }
     
-    public ICommand PlotMandelbrotSetCommand => new RelayCommand(() => PlotAsync());
+    public ICommand PlotMandelbrotSetCommand => new RelayCommand(() => PlotAsync()); //TODO:
 
     private async Task PlotAsync()
     {
-        var fractalImage = await fractal.PlotMandelbrotSetAsync(
+        var image = await fractal.PlotMandelbrotSetAsync(
             configurationService.SetMandelbrotSetConfiguration());
 
-        mainViewModel.CurrentPage = pageFactory.GetPageViewModel<FractalImagePageViewModel>();
+        mainViewModel.CurrentPage = pageFactory.GetPageViewModel<FractalImagePageViewModel>(action =>
+        {
+            action.PageName = ApplicationPageName.MandelbrotSet;
+            action.FractalImage = image.ToWriteableBitmap();
+        });
     }
 
 }

@@ -1,9 +1,15 @@
-﻿using FractalImagesGenerator.WPF.Data;
+﻿using System.Windows.Media.Imaging;
 
 namespace FractalImagesGenerator.WPF.ViewModels;
 
-public class FractalImagePageViewModel(ApplicationPageName pageName) : 
-    PageViewModel(pageName)
+public class FractalImagePageViewModel() : PageViewModel()
 {
-    private ApplicationPageName _pageName;
+    private WriteableBitmap _fractalImage;
+
+    public WriteableBitmap FractalImage
+    {
+        get => _fractalImage;
+        set => SetProperty(ref _fractalImage, value);
+    }
+
 }

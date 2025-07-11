@@ -17,4 +17,6 @@ public class PageViewModel : BaseViewModel
     {
         _pageName = pageName;
     }
+
+    protected PageViewModel() { }
 }
