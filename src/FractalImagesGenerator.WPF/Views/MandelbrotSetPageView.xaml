@@ -29,8 +29,8 @@
             <Border Grid.Column="1">
                 <Border Width="480" Height="400" BorderThickness="7" CornerRadius="4" Padding="0"
                         BorderBrush="{DynamicResource PrimaryImageBorederBrush}" Background="{DynamicResource PrimaryBackground}">
-                    <customcontrol:ImageButton Command="{Binding PlotMandelbrotSetCommand}" MousePosition="{Binding MousePosition}" >
-                        <Image Width="480" Height="400" Source="/Assets/Images/MandelbrotSet.png" />
+                    <customcontrol:ImageButton MousePosition="{Binding MousePosition}" BorderThickness="0" Background="Black">
+                        <Image Stretch="Fill" Source="/Assets/Images/MandelbrotSet.png" />
                     </customcontrol:ImageButton>
                 </Border>
             </Border>
