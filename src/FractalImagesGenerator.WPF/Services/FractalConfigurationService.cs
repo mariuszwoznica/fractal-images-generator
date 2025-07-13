@@ -10,9 +10,19 @@ public class FractalConfigurationService
         => new(
             Width: ImageConstants.width,
             Height: ImageConstants.height,
-            Zoom: 400,
-            MaxIterations: 500,
-            OffsetX: 0.73195,
-            OffsetY: 0.24072 //TODO: 
+            Zoom: Zoom(),
+            MaxIterations: ImageConstants.numberOfIterations,
+            OffsetX: ToOffsetX(mousePosition.X),
+            OffsetY: ToOffsetY(mousePosition.Y) //TODO: fix precision, fix docum.
             );
+
+    private double ToOffsetX(double x)
+        => -(((x - 0) / (ImageConstants.width - 0)) * (2 - (-2)) + (-2));
+
+    private double ToOffsetY(double y)
+        => -1 - (((y - 0) / (ImageConstants.height - 0)) * (2 - (-2)) + (-2));
+
+    private int Zoom()
+        => new Random().Next(10, 5000);
+
 }
