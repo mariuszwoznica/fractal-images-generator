@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
-namespace FractalImagesGenerator.WPF.ViewModels.Base;
+namespace FractalImagesGenerator.WPF.Infrastructure;
 
 public abstract class BaseViewModel : INotifyPropertyChanged
 {

@@ -1,4 +1,5 @@
 ﻿using FractalImageGenerator.Generator.Extensions;
+using FractalImagesGenerator.WPF.Infrastructure;
 using FractalImagesGenerator.WPF.Services;
 using FractalImagesGenerator.WPF.ViewModels;
 using FractalImagesGenerator.WPF.Views;

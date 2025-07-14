@@ -2,9 +2,9 @@
 using System.Windows.Controls;
 using System.Windows.Data;
 
-namespace FractalImagesGenerator.WPF;
+namespace FractalImagesGenerator.WPF.Infrastructure;
 
-internal class ViewLocator : IValueConverter
+public class ViewLocator : IValueConverter
 {
     public object? Convert(object value, Type targetType, object parameter, CultureInfo culture)
     {

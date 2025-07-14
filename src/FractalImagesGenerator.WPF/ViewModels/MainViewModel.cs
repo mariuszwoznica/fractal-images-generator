@@ -1,5 +1,5 @@
 ﻿using FractalImagesGenerator.WPF.Data;
-using FractalImagesGenerator.WPF.ViewModels.Base;
+using FractalImagesGenerator.WPF.Infrastructure;
 using System.Windows.Input;
 
 namespace FractalImagesGenerator.WPF.ViewModels;

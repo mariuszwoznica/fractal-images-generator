@@ -1,6 +1,6 @@
 ﻿using FractalImagesGenerator.WPF.ViewModels;
 
-namespace FractalImagesGenerator.WPF;
+namespace FractalImagesGenerator.WPF.Infrastructure;
 
 public class PageFactory(Func<Type, PageViewModel> factory)
 {

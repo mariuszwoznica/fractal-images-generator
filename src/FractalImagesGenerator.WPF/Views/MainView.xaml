@@ -6,7 +6,7 @@
         xmlns:view="clr-namespace:FractalImagesGenerator.WPF.Views"
         xmlns:viewmodel="clr-namespace:FractalImagesGenerator.WPF.ViewModels"
         xmlns:customcontrol="clr-namespace:FractalImagesGenerator.WPF.DependencyProperties" 
-        xmlns:converter="clr-namespace:FractalImagesGenerator.WPF"
+        xmlns:converter="clr-namespace:FractalImagesGenerator.WPF.Infrastructure"
         mc:Ignorable="d"
         Height="600" Width="1200"
         d:DataContext="{d:DesignInstance Type=viewmodel:MainViewModel}"

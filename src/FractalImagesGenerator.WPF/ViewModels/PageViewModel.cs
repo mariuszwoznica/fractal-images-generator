@@ -1,5 +1,5 @@
 ﻿using FractalImagesGenerator.WPF.Data;
-using FractalImagesGenerator.WPF.ViewModels.Base;
+using FractalImagesGenerator.WPF.Infrastructure;
 
 namespace FractalImagesGenerator.WPF.ViewModels;
 
