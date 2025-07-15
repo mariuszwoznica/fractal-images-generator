@@ -5,7 +5,7 @@ VisualStudioVersion = 17.13.35913.81
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FractalImagesGenerator.UI", "src\FractalImagesGenerator.UI\FractalImagesGenerator.UI.csproj", "{1387F42B-CB23-4BE9-A742-B5EC49580B73}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FractalImagesGenerator.WPF", "src\FractalImagesGenerator.WPF\FractalImagesGenerator.WPF.csproj", "{1387F42B-CB23-4BE9-A742-B5EC49580B73}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FractalImageGenerator.Generator", "src\FractalImageGenerator.Generator\FractalImageGenerator.Generator.csproj", "{A49155C5-2175-4377-8E59-E29F328D6D58}"
 EndProject
